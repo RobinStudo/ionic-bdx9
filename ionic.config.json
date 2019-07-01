@@ -1,5 +1,7 @@
 {
   "name": "beero",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
