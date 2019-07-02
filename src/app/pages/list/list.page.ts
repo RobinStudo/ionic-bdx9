@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { AlertController } from '@ionic/angular';
+
 import { Place } from '../../model/place';
 
 @Component({
@@ -9,7 +12,7 @@ import { Place } from '../../model/place';
 export class ListPage implements OnInit {
     private places: Array<Place>;
 
-    constructor(){
+    constructor( private sanitizer: DomSanitizer, private alertCtrl: AlertController ){
         this.places = [
             {
                 id: 1,
@@ -53,7 +56,15 @@ export class ListPage implements OnInit {
         ];
     }
 
-  ngOnInit(){
-  }
+    ngOnInit(){}
 
+    async showPreview(){
+        const alert = await this.alertCtrl.create({
+            header: 'Bientôt disponible',
+            message: 'Notre application est pour le moment en version Preview, soyez patients',
+            buttons: ['D\'accord']
+        });
+
+        alert.present();
+    }
 }

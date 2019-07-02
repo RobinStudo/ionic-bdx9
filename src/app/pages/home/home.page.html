@@ -1,14 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+    <ion-slides [options]="sliderOptions">
+        <ion-slide
+            *ngFor="let slide of slides"
+            [style]="sanitizer.bypassSecurityTrustStyle( 'background-image: url(' + slide + ');')"
+        >
+        </ion-slide>
+    </ion-slides>
+
+    <div class="container">
+        <div class="content">
+            <div class="tagline">
+                <div class="logo">
+                    <img src="assets/img/logo.png" alt="Logo">
+                </div>
+
+                <h1>Beero</h1>
+                <p>Un jour, un bar</p>
+            </div>
+            <div class="button">
+                <ion-button size="large">Découvrir nos bars</ion-button>
+            </div>
+        </div>
+    </div>
 </ion-content>

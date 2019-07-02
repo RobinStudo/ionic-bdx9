@@ -1,1 +1,42 @@
+ion-slides{
+    height: 100%;
 
+    ion-slide{
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+.container{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba( 0, 0, 0, 0.5 );
+    z-index: 1;
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        align-items: center;
+
+        .tagline{
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            .logo img{
+                height: 150px;
+            }
+            h1{
+                font-size: 3rem;
+                margin-bottom: 0;
+            }
+            p{
+                margin: 0;
+            }
+        }
+    }
+}

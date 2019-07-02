@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>list</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-title>Nos bars</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div *ngIf="places.length > 0; else noData">
+        <p>Il y à {{ places.length }} bar(s)</p>
+
+        <ion-card
+            *ngFor="let place of places"
+            [style]="sanitizer.bypassSecurityTrustStyle( 'background-image: url(' + place.picture + ');')"
+        >
+            <ion-card-header>
+                <ion-card-title>{{ place.name }}</ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </div>
+
+    <ng-template #noData>
+        Aucun bar disponible
+    </ng-template>
+
+    <ion-button expand="full" color="secondary" size="large" (click)="showPreview()">Ajouter un bar</ion-button>
 
 </ion-content>
