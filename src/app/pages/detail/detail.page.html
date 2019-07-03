@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>detail</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <div class="view" [style]="sanitizer.bypassSecurityTrustStyle( 'background-image: url(' + place.picture + ');' )">
 
+        <div class="view-content">
+            <h1>{{ place.name }}</h1>
+
+            <div class="back-btn" routerLink="/list">
+                <
+            </div>
+        </div>
+    </div>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-chip color="primary">
+                    <ion-label>{{ place.category }}</ion-label>
+                </ion-chip>
+            </ion-col>
+            <ion-col class="rate">{{ place.rate }}</ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-card>
+        <ion-card-content>
+            {{ place.description }}
+        </ion-card-content>
+    </ion-card>
 </ion-content>

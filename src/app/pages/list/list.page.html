@@ -1,5 +1,10 @@
 <ion-header>
     <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <div class="homeBtn" routerLink="/home">
+                <img src="assets/img/logo.png" alt="Logo">
+            </div>
+        </ion-buttons>
         <ion-title>Nos bars</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -11,6 +16,7 @@
         <ion-card
             *ngFor="let place of places"
             [style]="sanitizer.bypassSecurityTrustStyle( 'background-image: url(' + place.picture + ');')"
+            [routerLink]="['/detail', place.id]"
         >
             <ion-card-header>
                 <ion-card-title>{{ place.name }}</ion-card-title>

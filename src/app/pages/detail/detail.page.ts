@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Place } from '../../model/place';
 
 @Component({
@@ -6,10 +8,11 @@ import { Place } from '../../model/place';
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
 })
-export class DetailPage implements OnInit {
+export class DetailPage implements OnInit{
     private places: Array<Place>;
+    private place: Place;
 
-    constructor(){
+    constructor( private route: ActivatedRoute, private sanitizer: DomSanitizer ){
         this.places = [
             {
                 id: 1,
@@ -53,7 +56,13 @@ export class DetailPage implements OnInit {
         ];
     }
 
-    ngOnInit() {
-    }
+    ngOnInit(){
+        let id = this.route.snapshot.params['id'];
 
+        for( let place of this.places ){
+            if( place.id == id ){
+                this.place = place;
+            }
+        }
+    }
 }
