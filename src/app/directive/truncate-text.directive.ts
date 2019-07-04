@@ -12,7 +12,7 @@ export class TruncateTextDirective implements AfterViewInit{
     constructor( private el: ElementRef ){}
 
     ngAfterViewInit(){
-        if( this.length == "" ){
+        if( this.length == 0 ){
             this.length = 40;
         }
 
