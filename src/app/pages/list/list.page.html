@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="dark">
         <ion-buttons slot="start">
             <div class="homeBtn" routerLink="/home">
                 <img src="assets/img/logo.png" alt="Logo">
@@ -28,6 +28,9 @@
         Aucun bar disponible
     </ng-template>
 
-    <ion-button expand="full" color="secondary" size="large" (click)="showPreview()">Ajouter un bar</ion-button>
-
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="secondary" (click)="showPreview()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
