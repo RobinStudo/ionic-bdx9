@@ -14,7 +14,10 @@
         <ion-row>
             <ion-col>
                 <ion-chip color="primary">
-                    <ion-label>{{ place.category }}</ion-label>
+                    <ion-label>
+                        <ion-icon [name]="place.category | categoryIcon"></ion-icon>
+                        {{ place.category }}
+                    </ion-label>
                 </ion-chip>
             </ion-col>
             <ion-col class="rate">{{ place.rate }}</ion-col>
@@ -26,4 +29,6 @@
             {{ place.description }}
         </ion-card-content>
     </ion-card>
+
+    <p>Ajouté le {{ place.createdAt | date:"dd/MM/yyyy à HH:mm" }}</p>
 </ion-content>

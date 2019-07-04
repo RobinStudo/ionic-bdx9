@@ -38,7 +38,7 @@ ion-col{
     align-items: center;
 
     ion-chip ion-label{
-        font-size: 2rem;
+        font-size: 1.3rem;
         padding: 10px;
     }
 
@@ -46,4 +46,8 @@ ion-col{
         font-size: 2.5rem;
         font-weight: 900;
     }
+}
+
+p{
+    margin: 10px;
 }
