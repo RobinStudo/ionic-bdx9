@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="place">
     <div class="view" [style]="sanitizer.bypassSecurityTrustStyle( 'background-image: url(' + place.picture + ');' )">
 
         <div class="view-content">

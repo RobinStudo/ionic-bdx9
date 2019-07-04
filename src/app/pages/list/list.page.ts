@@ -11,7 +11,7 @@ import { PlaceService } from '../../services/place.service';
     styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-    private places: Array<Place>;
+    private places: Array<Place> = [];
 
     constructor(
         private sanitizer: DomSanitizer,
@@ -20,7 +20,9 @@ export class ListPage implements OnInit {
     ){}
 
     ngOnInit(){
-        this.places = this.placeService.getAll();
+        this.placeService.getAll().then( places => {
+            this.places = places;
+        });
     }
 
     async showPreview(){

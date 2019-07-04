@@ -21,6 +21,6 @@ export class DetailPage implements OnInit{
 
     ngOnInit(){
         let id = this.route.snapshot.params['id'];
-        this.place = this.placeService.get( id );
+        this.placeService.get( id ).then( place => this.place = place );
     }
 }
