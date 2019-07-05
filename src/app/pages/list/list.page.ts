@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AlertController } from '@ionic/angular';
 
@@ -10,7 +10,7 @@ import { PlaceService } from '../../services/place.service';
     templateUrl: './list.page.html',
     styleUrls: ['./list.page.scss'],
 })
-export class ListPage implements OnInit {
+export class ListPage {
     private places: Array<Place> = [];
 
     constructor(
@@ -19,7 +19,7 @@ export class ListPage implements OnInit {
         private placeService: PlaceService
     ){}
 
-    ngOnInit(){
+    ionViewWillEnter(){
         this.placeService.getAll().then( places => {
             this.places = places;
         });

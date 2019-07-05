@@ -1,9 +1,46 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>add</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <div class="homeBtn" routerLink="/home">
+                <img src="assets/img/logo.png" alt="Logo">
+            </div>
+        </ion-buttons>
+        <ion-title>Ajouter un bar</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <form #placeForm="ngForm" (ngSubmit)="save()">
 
+        <ion-item>
+            <ion-label position="floating">Titre</ion-label>
+            <ion-input name="title" [(ngModel)]="place.name" required #titleField="ngModel"></ion-input>
+        </ion-item>
+
+        <div *ngIf="titleField.invalid && titleField.touched">
+            Ce champ est requis
+        </div>
+
+        <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea name="description" [(ngModel)]="place.description" required pattern=".{10,}" #descriptionField="ngModel"></ion-textarea>
+        </ion-item>
+
+        <div *ngIf="descriptionField.invalid && descriptionField.touched">
+            Ce champ est requis et doit contenir au moins 10 caractères
+        </div>
+
+        <ion-item>
+            <ion-label>Catégorie</ion-label>
+            <ion-select name="category" [(ngModel)]="place.category" required #catField="ngModel">
+                <ion-select-option *ngFor="let category of categories" value="category">{{ category }}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <div *ngIf="catField.invalid && catField.touched">
+            Vous devez séléctionner une catégorie
+        </div>
+
+        <ion-button type="submit" [disabled]="!placeForm.form.valid">Ajouter</ion-button>
+    </form>
 </ion-content>

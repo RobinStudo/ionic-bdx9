@@ -17,4 +17,8 @@ export class PlaceService {
     get( id: number ){
         return this.http.get<Place>( 'http://localhost:3000/places/' + id ).toPromise();
     }
+
+    add( place: Place ){
+        return this.http.post( 'http://localhost:3000/places', place ).toPromise();
+    }
 }
